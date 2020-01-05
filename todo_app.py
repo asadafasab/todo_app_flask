@@ -85,8 +85,3 @@ def about():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-# done
-# category
-# easter egg: https://youtu.be/nxUmibwHKcM js obfuscated script
