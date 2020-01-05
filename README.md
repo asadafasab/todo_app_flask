@@ -1,8 +1,9 @@
 # ToDo Web App
 This is dummy to do web app written in flask 
 
-## Setup
+![ss](https://raw.githubusercontent.com/6malphas/todo_app_flask/master/ss.png "Screnshot")
 
-```python
+## Setup
+```bash
 pip install --user -r requirements.txt
 ```
