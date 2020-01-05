@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Update</h1>
+
+<form action="/update/{{task.id}}" method="POST">
+    <label for="text">Update task</label>
+    <div class="form-group">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="note" id="note" placeholder="Note">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add task" class="btn btn-dark">
+    </div>
+</form>
+
+{% endblock content %}

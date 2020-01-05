@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>To Do List</h2>
+{% if tasks|length < 1 %}
+<h4>Nothing to do (or sth)</h4>
+{% else %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Done</th>
+            <th scope="col">Title</th>
+            <th scope="col">Note</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        {% if task.done %}
+        <tr class="table-dark">
+            <td>
+                <a href="/done/{{task.id}}" class="btn btn-secondary">Undone</a>
+                {% else%}
+        <tr>
+            <td>
+                <a href="/done/{{task.id}}" class="btn btn-dark">Done</a>
+                {% endif %}
+            </td>
+            <td>{{task.title}}</td>
+            <td>{{task.note}}</td>
+            <td>
+                <a href="/update/{{task.id}}" class="btn btn-dark">+</a>
+                <a href="/delete/{{task.id}}" class="btn btn-secondary">-</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+<form action="/" method="POST">
+    <label for="text">Add new task</label>
+    <div class="form-group">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="note" id="note" placeholder="Note">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add task" class="btn btn-dark">
+    </div>
+</form>
+
+{% endblock content %}
