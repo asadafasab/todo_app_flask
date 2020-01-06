@@ -18,18 +18,18 @@
         {% if task.done %}
         <tr class="table-dark">
             <td>
-                <a href="/done/{{task.id}}" class="btn btn-secondary">Undone</a>
+                <a href="/done/{{task.task_id}}" class="btn btn-secondary">Undone</a>
                 {% else%}
         <tr>
             <td>
-                <a href="/done/{{task.id}}" class="btn btn-dark">Done</a>
+                <a href="/done/{{task.task_id}}" class="btn btn-dark">Done</a>
                 {% endif %}
             </td>
             <td>{{task.title}}</td>
             <td>{{task.note}}</td>
             <td>
-                <a href="/update/{{task.id}}" class="btn btn-dark">+</a>
-                <a href="/delete/{{task.id}}" class="btn btn-secondary">-</a>
+                <a href="/update/{{task.task_id}}" class="btn btn-dark">+</a>
+                <a href="/delete/{{task.task_id}}" class="btn btn-secondary">-</a>
             </td>
         </tr>
         {% endfor %}
