@@ -11,6 +11,12 @@ pip install --user -r requirements.txt
 ### Docker
 
 ```bash
-docker build -t todo_flast:latest .
-docker run -p 5000:5000 -t -i todo_flast
+eval $(minikube docker-env) # minikube - k8s
+docker build -t todoflask:latest .
+docker run -p 8080:8080 -t -i todoflask
+```
+
+### K8s
+```bash
+kubectl
 ```

@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Secret
+metadata: 
+  name: todo-secrets
+type: Opaque
+data:
+  db_root_password: bm8gcGFzc3dvcmQK
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-service
+spec:
+  selector:
+    app: todo-python
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    nodePort: 31333
+  type: NodePort
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-python
+spec:
+  selector:
+    matchLabels:
+      app: todo-python
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: todo-python
+    spec:
+      containers:
+      - name: todoflask
+        image: todoflask:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
