@@ -18,5 +18,5 @@ docker run -p 8080:8080 -t -i todoflask
 
 ### K8s
 ```bash
-kubectl
+kubectl apply -f todo.yaml
 ```
