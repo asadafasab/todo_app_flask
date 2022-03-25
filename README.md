@@ -7,3 +7,10 @@ This is dummy to do web app written in flask
 ```bash
 pip install --user -r requirements.txt
 ```
+
+### Docker
+
+```bash
+docker build -t todo_flast:latest .
+docker run -p 5000:5000 -t -i todo_flast
+```
